@@ -1,0 +1,188 @@
+<!-- ส่วนรูปโปรไฟล์ร้าน -->
+<div class="profile">
+    <img id="profileImage"
+         src="https://placehold.co/150x150/160000/ff2020?text=PC+ZONE"
+         alt="PC ZONE">
+
+    <h2 id="profileName">PC ZONE</h2>
+
+    <div id="profileEditor" hidden>
+        <label>เปลี่ยนรูปโปรไฟล์ร้าน</label>
+        <input type="file"
+               accept="image/*"
+               onchange="changeImage(event, 'profileImage')">
+
+        <label>เปลี่ยนชื่อร้าน</label>
+        <input type="text"
+               id="newProfileName"
+               placeholder="PC ZONE">
+
+        <button onclick="saveProfile()">บันทึกโปรไฟล์</button>
+    </div>
+</div>
+
+<!-- ส่วนภาพปกเว็บไซต์ -->
+<section class="banner">
+    <img id="bannerImage"
+         src="https://placehold.co/1000x300/180000/ff2020?text=PC+ZONE"
+         alt="ภาพปก PC ZONE">
+
+    <div id="bannerEditor" hidden>
+        <label>เปลี่ยนรูปปกเว็บไซต์</label>
+        <input type="file"
+               accept="image/*"
+               onchange="changeImage(event, 'bannerImage')">
+    </div>
+</section>
+
+<!-- ส่วนสินค้า -->
+<section class="products">
+    <h2>สินค้าแนะนำ</h2>
+
+    <div id="productList"></div>
+
+    <div id="productEditor" hidden>
+        <h3>เพิ่มสินค้า</h3>
+
+        <label>ชื่อสินค้า</label>
+        <input id="productName" placeholder="ชื่อสินค้า">
+
+        <label>ราคา</label>
+        <input id="productPrice" placeholder="฿39.00">
+
+        <label>รายละเอียดสินค้า</label>
+        <textarea id="productDescription"></textarea>
+
+        <label>รูปปกสินค้า</label>
+        <input type="file"
+               id="productImage"
+               accept="image/*">
+
+        <button onclick="addProduct()">เพิ่มสินค้า</button>
+    </div>
+</section>
+
+<!-- ปุ่มติดต่อ Instagram -->
+<a class="instagram-button"
+   href="https://www.instagram.com/taweiopp__17?vrfl=bnBxcDJxeDQwd2U4"
+   target="_blank"
+   rel="noopener">
+
+    <svg viewBox="0 0 24 24"
+         width="25"
+         height="25"
+         fill="currentColor"
+         aria-label="Instagram">
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+    </svg>
+
+    ติดต่อผ่าน Instagram
+</a>
+
+<a class="discord-button"
+   href="https://discord.gg/QJJSaAyz"
+   target="_blank"
+   rel="noopener">
+    🎮 Discord
+</a>
+
+<!-- เข้าสู่ระบบผู้ดูแล -->
+<div id="loginBox">
+    <h3>เข้าสู่ระบบผู้ดูแล</h3>
+
+    <input type="password"
+           id="adminPassword"
+           placeholder="รหัสผ่าน">
+
+    <button onclick="loginAdmin()">เข้าสู่ระบบ</button>
+
+    <button onclick="skipLogin()">ข้ามเข้าสู่เว็บไซต์</button>
+
+    <p id="loginMessage"></p>
+</div>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    background: #050505;
+    color: white;
+    font-family: Arial, Tahoma, sans-serif;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff1424;
+}
+
+.banner {
+    position: relative;
+    margin: 20px 0;
+}
+
+.banner img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.products {
+    margin-top: 30px;
+}
+
+#productList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.product-card {
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 14px;
+    background: #111;
+    overflow-wrap: anywhere;
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+}
+
+.price {
+    color: #ff2535;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button,
+.instagram-button,
+.discord-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 5px 0;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 10px;
+    background: #ff1424;
+    color: white;
+    font-weight: bold;
+    text-decoration
